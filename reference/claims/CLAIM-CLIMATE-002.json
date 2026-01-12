@@ -1,0 +1,75 @@
+{
+  "reference_id": "CLAIM-CLIMATE-002",
+  "domain": "CLIMATE",
+  "title": "Amazon Net Zero 2040",
+  
+  "declaration": {
+    "claimant_id": "CLAIMANT-AMAZON",
+    "statement": "Amazon will achieve net-zero carbon by 2040.",
+    "statement_context": "Climate Pledge announcement by Amazon, co-founded with Global Optimism, September 19, 2019.",
+    "source_excerpt": "Amazon co-founded The Climate Pledge, committing to reach net-zero carbon by 2040—10 years ahead of the Paris Agreement.",
+    "declared_at": "2019-09-19T12:00:00Z",
+    "source_url": "https://sustainability.aboutamazon.com/climate-pledge",
+    "source_archived_url": null,
+    "claim_type": "predictive",
+    "claim_class": "strategic",
+    "scope": {
+      "geographic": "Global",
+      "policy_domain": "Corporate Sustainability",
+      "affected_population": "Amazon stakeholders, global climate"
+    }
+  },
+  
+  "operationalization": {
+    "expected_outcome": {
+      "description": "Amazon total GHG emissions (Scopes 1, 2, 3) reach net zero by 2040, verified by third-party audit",
+      "metrics": [
+        "Scope 1 emissions (direct)",
+        "Scope 2 emissions (energy)",
+        "Scope 3 emissions (supply chain)",
+        "Verified carbon removals/offsets"
+      ],
+      "direction_of_change": "decrease",
+      "baseline_value": "71.54 million metric tons CO2e (2021)",
+      "target_value": "Net zero (gross emissions = removals)"
+    },
+    "timeframe": {
+      "start_date": "2019-09-19",
+      "evaluation_date": "2040-12-31",
+      "milestone_dates": ["2025-12-31", "2030-12-31", "2035-12-31"],
+      "tolerance_window_days": 365
+    },
+    "evaluation_criteria": {
+      "success_conditions": [
+        "Verified net-zero across all emission scopes by 2040"
+      ],
+      "partial_success_conditions": [
+        "Net-zero Scopes 1 & 2, significant Scope 3 reduction"
+      ],
+      "failure_conditions": [
+        "Emissions trajectory inconsistent with 2040 target"
+      ]
+    },
+    "operationalization_notes": "Net zero = gross emissions - verified removals = 0. Interim targets: 100% renewable energy by 2025, 100,000 EV delivery vans by 2030. Strategic claims require trajectory evaluation at milestones."
+  },
+  
+  "evidence": [
+    {
+      "evidence_id": "CLAIM-CLIMATE-002-EV-001",
+      "source_url": "https://sustainability.aboutamazon.com/2023-sustainability-report",
+      "source_title": "Amazon 2023 Sustainability Report",
+      "source_publisher": "Amazon",
+      "source_date": "2024-07-10",
+      "source_type": "primary",
+      "evidence_type": "official_report",
+      "summary": "2023 carbon footprint: 68.82 million metric tons CO2e, down 3% from 2022. 90% renewable energy. Progress on track but substantial reductions still needed for 2040 net-zero.",
+      "supports_claim": true,
+      "relevance_explanation": "Annual progress report showing emissions declining. Trajectory consistent with 2040 goal but significant work remains.",
+      "confidence_score": "0.80",
+      "confidence_rationale": "Self-reported data. Third-party verification partial. Methodology changes can affect year-over-year comparability."
+    }
+  ],
+  
+  "resolution": null
+}
+

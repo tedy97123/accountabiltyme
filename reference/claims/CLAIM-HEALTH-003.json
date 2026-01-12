@@ -1,0 +1,84 @@
+{
+  "reference_id": "CLAIM-HEALTH-003",
+  "domain": "HEALTH",
+  "title": "US Life Expectancy Trajectory",
+  
+  "declaration": {
+    "claimant_id": "CLAIMANT-SSA",
+    "statement": "US life expectancy will continue to increase by about 1 year per decade.",
+    "statement_context": "Historical trend assumption used in Social Security actuarial models and CDC projections, based on 1980-2014 trajectory.",
+    "source_excerpt": null,
+    "declared_at": "2015-01-01T00:00:00Z",
+    "source_url": "https://www.ssa.gov/OACT/TR/2015/",
+    "source_archived_url": null,
+    "claim_type": "predictive",
+    "claim_class": "threshold",
+    "scope": {
+      "geographic": "United States",
+      "policy_domain": "Public Health",
+      "affected_population": "All US residents"
+    }
+  },
+  
+  "operationalization": {
+    "expected_outcome": {
+      "description": "US life expectancy at birth reaches approximately 79.9 years by 2024",
+      "metrics": ["CDC NCHS life expectancy at birth"],
+      "direction_of_change": "increase",
+      "baseline_value": "78.9 years (2014)",
+      "target_value": "79.9 years (2024)",
+      "baseline_date": "2014-12-31"
+    },
+    "timeframe": {
+      "start_date": "2015-01-01",
+      "evaluation_date": "2024-12-31",
+      "milestone_dates": [],
+      "tolerance_window_days": 30
+    },
+    "evaluation_criteria": {
+      "success_conditions": ["Life expectancy >= 79.5 years by 2024"],
+      "partial_success_conditions": ["Life expectancy 79.0-79.5 years"],
+      "failure_conditions": ["Life expectancy < 79.0 years or decreasing"]
+    },
+    "operationalization_notes": "Using CDC NCHS life expectancy at birth as primary metric. Historical 1980-2014 data showed ~1 year increase per decade."
+  },
+  
+  "evidence": [
+    {
+      "evidence_id": "CLAIM-HEALTH-003-EV-001",
+      "source_url": "https://www.cdc.gov/nchs/data/vsrr/vsrr023.pdf",
+      "source_title": "Provisional Life Expectancy Estimates for 2021",
+      "source_publisher": "CDC National Center for Health Statistics",
+      "source_date": "2022-08-31",
+      "source_type": "primary",
+      "evidence_type": "statistical_data",
+      "summary": "US life expectancy fell to 76.4 years in 2021, a 2.5 year decline from the 2014 baseline of 78.9 years. Trend reversed, not continued.",
+      "supports_claim": false,
+      "relevance_explanation": "Official CDC statistics showing life expectancy decreased rather than increased as the trend assumption projected.",
+      "confidence_score": "0.99",
+      "confidence_rationale": "Official CDC vital statistics data"
+    },
+    {
+      "evidence_id": "CLAIM-HEALTH-003-EV-002",
+      "source_url": "https://www.cdc.gov/nchs/data/nvsr/nvsr73/nvsr73-01.pdf",
+      "source_title": "Deaths: Final Data for 2022",
+      "source_publisher": "CDC National Center for Health Statistics",
+      "source_date": "2024-03-21",
+      "source_type": "primary",
+      "evidence_type": "statistical_data",
+      "summary": "Life expectancy recovered to 77.5 years in 2022, still 1.4 years below the 2014 baseline and 2.4 years below the projected 79.9.",
+      "supports_claim": false,
+      "relevance_explanation": "Shows partial recovery but confirms life expectancy remains well below both baseline and projected trajectory.",
+      "confidence_score": "0.99",
+      "confidence_rationale": "Official CDC final mortality data"
+    }
+  ],
+  
+  "resolution": {
+    "resolution": "not_met",
+    "resolution_summary": "US life expectancy did not continue increasing. It declined from 78.9 years (2014) to 76.4 years (2021), with partial recovery to 77.5 years (2022) - still well below the projected 79.9 years.",
+    "supporting_evidence_ids": ["CLAIM-HEALTH-003-EV-001", "CLAIM-HEALTH-003-EV-002"],
+    "resolution_details": "Key factors in trend reversal:\n1. Opioid epidemic (began affecting life expectancy ~2015)\n2. COVID-19 pandemic (2020-2022)\n3. Rising 'deaths of despair'\n\nThe historical trend assumption failed. This represents a significant actuarial and public health forecasting error."
+  }
+}
+

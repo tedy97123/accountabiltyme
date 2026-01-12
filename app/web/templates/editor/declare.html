@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Declare Claim</h2>
+<p><a href="/editor">← Back to dashboard</a></p>
+
+<form method="post" action="/editor/declare">
+  <label>Statement *
+    <textarea name="statement" required placeholder="The specific claim being made..."></textarea>
+  </label>
+
+  <label>Context
+    <input name="statement_context" placeholder="Where/when was this claim made?" />
+  </label>
+
+  <label>Source URL
+    <input name="source_url" type="url" placeholder="https://..." />
+  </label>
+
+  <label>Claim Type
+    <select name="claim_type">
+      <option value="predictive">Predictive</option>
+      <option value="descriptive">Descriptive</option>
+      <option value="causal">Causal</option>
+    </select>
+  </label>
+
+  <fieldset>
+    <legend>Scope (optional)</legend>
+    
+    <label>Geographic
+      <input name="geographic" placeholder="e.g., California, USA" />
+    </label>
+
+    <label>Policy Domain
+      <input name="policy_domain" placeholder="e.g., housing, healthcare" />
+    </label>
+
+    <label>Affected Population
+      <input name="affected_population" placeholder="e.g., renters, seniors" />
+    </label>
+  </fieldset>
+
+  <button type="submit">Create Claim</button>
+</form>
+{% endblock %}
+

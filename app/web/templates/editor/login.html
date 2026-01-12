@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Editor Login</h2>
+
+{% if error %}
+  <article style="border-left: 4px solid #ef4444; background: #fef2f2;">
+    <strong>Login failed:</strong> {{ error }}
+  </article>
+{% endif %}
+
+<form method="post" action="/editor/login">
+  <label>Username
+    <input name="username" required autofocus />
+  </label>
+
+  <label>Password
+    <input name="password" type="password" required />
+  </label>
+
+  <button type="submit">Sign in</button>
+</form>
+
+<p><small><a href="/claims">← Back to public claims</a></small></p>
+{% endblock %}
+

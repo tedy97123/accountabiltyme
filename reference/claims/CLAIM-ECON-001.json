@@ -1,0 +1,69 @@
+{
+  "reference_id": "CLAIM-ECON-001",
+  "domain": "ECON",
+  "title": "Fed Interest Rate Cuts 2024",
+  
+  "declaration": {
+    "claimant_id": "CLAIMANT-FED",
+    "statement": "The Federal Reserve expects to make three rate cuts in 2024.",
+    "statement_context": "Federal Reserve December 2023 Summary of Economic Projections (dot plot), FOMC meeting December 12-13, 2023.",
+    "source_excerpt": "The median projection for the federal funds rate is 4.6 percent at the end of 2024, down from 5.1 percent.",
+    "declared_at": "2023-12-13T19:00:00Z",
+    "source_url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20231213.htm",
+    "source_archived_url": null,
+    "claim_type": "predictive",
+    "claim_class": "deterministic",
+    "scope": {
+      "geographic": "United States",
+      "policy_domain": "Monetary Policy",
+      "affected_population": "US economy"
+    }
+  },
+  
+  "operationalization": {
+    "expected_outcome": {
+      "description": "Federal Reserve makes three rate cuts during 2024",
+      "metrics": ["Number of FOMC rate cut decisions"],
+      "direction_of_change": "achieve threshold",
+      "baseline_value": "5.25-5.50% (December 2023)",
+      "target_value": "3 rate cuts"
+    },
+    "timeframe": {
+      "start_date": "2023-12-13",
+      "evaluation_date": "2024-12-31",
+      "milestone_dates": [],
+      "tolerance_window_days": 30
+    },
+    "evaluation_criteria": {
+      "success_conditions": ["Exactly 3 rate cuts in 2024"],
+      "partial_success_conditions": ["2 or 4 rate cuts"],
+      "failure_conditions": ["0-1 cuts or >= 5 cuts"]
+    },
+    "operationalization_notes": "Interpreting 'three rate cuts' as three FOMC decisions to lower the federal funds target rate. Size of cuts is secondary to count."
+  },
+  
+  "evidence": [
+    {
+      "evidence_id": "CLAIM-ECON-001-EV-001",
+      "source_url": "https://www.federalreserve.gov/monetarypolicy/openmarket.htm",
+      "source_title": "Federal Reserve Open Market Operations",
+      "source_publisher": "Federal Reserve Board",
+      "source_date": "2024-12-18",
+      "source_type": "primary",
+      "evidence_type": "official_report",
+      "summary": "The Federal Reserve cut rates exactly 3 times in 2024: September 18, November 7, and December 18. The projection of three cuts was accurate.",
+      "supports_claim": true,
+      "relevance_explanation": "Official FOMC decisions. Three cuts occurred as projected.",
+      "confidence_score": "1.00",
+      "confidence_rationale": "Primary source from Federal Reserve"
+    }
+  ],
+  
+  "resolution": {
+    "resolution": "met",
+    "resolution_summary": "The Fed made exactly 3 rate cuts in 2024 as projected. September: -50bp, November: -25bp, December: -25bp.",
+    "supporting_evidence_ids": ["CLAIM-ECON-001-EV-001"],
+    "resolution_details": "The December 2023 dot plot correctly predicted 3 rate cuts. Timing was delayed (first cut in September vs. early 2024 market expectations), but the count was accurate."
+  }
+}
+

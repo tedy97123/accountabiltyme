@@ -1,0 +1,74 @@
+{
+  "version": "1.0",
+  "description": "AccountabilityMe Reference Narrative Set - Canonical claims for testing and demonstration",
+  "namespace": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+  "domains": {
+    "POL": {
+      "name": "Policy & Legislation",
+      "description": "Government statements, press releases, policy claims"
+    },
+    "ECON": {
+      "name": "Economic Forecasts",
+      "description": "Federal Reserve, economists, financial institutions"
+    },
+    "CORP": {
+      "name": "Corporate Accountability",
+      "description": "Earnings calls, CEO statements, ESG reports"
+    },
+    "TECH": {
+      "name": "Technology Claims",
+      "description": "Product launches, tech announcements, roadmaps"
+    },
+    "HEALTH": {
+      "name": "Public Health",
+      "description": "CDC, WHO, health officials"
+    },
+    "CLIMATE": {
+      "name": "Climate & Environment",
+      "description": "Climate reports, commitments, policy statements"
+    }
+  },
+  "claims": [
+    {
+      "reference_id": "CLAIM-POL-001",
+      "file": "claims/CLAIM-POL-001.json",
+      "domain": "POL",
+      "title": "Inflation Reduction Act - Deficit Reduction",
+      "status": "operationalized",
+      "evaluation_date": "2032-12-31"
+    },
+    {
+      "reference_id": "CLAIM-CORP-001",
+      "file": "claims/CLAIM-CORP-001.json",
+      "domain": "CORP",
+      "title": "Tesla Full Self-Driving 2023",
+      "status": "resolved",
+      "resolution": "not_met"
+    },
+    {
+      "reference_id": "CLAIM-HEALTH-003",
+      "file": "claims/CLAIM-HEALTH-003.json",
+      "domain": "HEALTH",
+      "title": "US Life Expectancy Trajectory",
+      "status": "resolved",
+      "resolution": "not_met"
+    },
+    {
+      "reference_id": "CLAIM-ECON-001",
+      "file": "claims/CLAIM-ECON-001.json",
+      "domain": "ECON",
+      "title": "Fed Interest Rate Cuts 2024",
+      "status": "resolved",
+      "resolution": "met"
+    },
+    {
+      "reference_id": "CLAIM-CLIMATE-002",
+      "file": "claims/CLAIM-CLIMATE-002.json",
+      "domain": "CLIMATE",
+      "title": "Amazon Net Zero 2040",
+      "status": "operationalized",
+      "evaluation_date": "2040-12-31"
+    }
+  ]
+}
+

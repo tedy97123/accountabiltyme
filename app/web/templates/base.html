@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or "AccountabilityMe" }}</title>
+  <link rel="stylesheet" href="/static/pico.min.css">
+  <style>
+    :root {
+      --primary: #1095c1;
+      --primary-hover: #0d7a9e;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .badge-declared { background: #fef3c7; color: #92400e; }
+    .badge-operationalized { background: #dbeafe; color: #1e40af; }
+    .badge-observing { background: #e0e7ff; color: #3730a3; }
+    .badge-resolved { background: #d1fae5; color: #065f46; }
+    .badge-unknown { background: #f3f4f6; color: #374151; }
+    
+    .chain-valid { color: #059669; }
+    .chain-invalid { color: #dc2626; }
+    
+    .hash-text {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: #6b7280;
+      word-break: break-all;
+    }
+    
+    .timeline-item {
+      border-left: 3px solid var(--primary);
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .evidence-card {
+      border-left: 4px solid #10b981;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+    .evidence-card.contradicting {
+      border-left-color: #ef4444;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <nav>
+      <ul>
+        <li><strong>AccountabilityMe</strong></li>
+      </ul>
+      <ul>
+        <li><a href="/claims">Claims</a></li>
+        <li><a href="/docs">API</a></li>
+      </ul>
+    </nav>
+
+    {% if chain_ok is defined %}
+      <article style="padding: 0.5rem 1rem; margin-bottom: 1rem;">
+        <strong>Chain Integrity:</strong>
+        {% if chain_ok %}
+          <span class="chain-valid">✓ VALID</span>
+        {% else %}
+          <span class="chain-invalid">✗ INVALID</span>
+        {% endif %}
+        {% if event_count is defined %}
+          <span style="float: right; color: #6b7280;">{{ event_count }} events</span>
+        {% endif %}
+      </article>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+    
+    <footer style="margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; text-align: center; color: #6b7280;">
+      <small>
+        AccountabilityMe - Claims are cryptographically anchored and independently verifiable.
+      </small>
+    </footer>
+  </main>
+</body>
+</html>
+

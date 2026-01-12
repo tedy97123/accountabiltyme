@@ -1,0 +1,59 @@
+{
+  "reference_id": "CLAIM-POL-001",
+  "domain": "POL",
+  "title": "Inflation Reduction Act - Deficit Reduction",
+  
+  "declaration": {
+    "claimant_id": "CLAIMANT-WHITEHOUSE",
+    "statement": "The Inflation Reduction Act will cut the deficit by $300 billion over the next decade.",
+    "statement_context": "White House statement upon signing of the Inflation Reduction Act, August 16, 2022.",
+    "source_excerpt": "The Inflation Reduction Act will cut the deficit by about $300 billion over the next decade.",
+    "declared_at": "2022-08-16T15:00:00Z",
+    "source_url": "https://www.whitehouse.gov/briefing-room/statements-releases/2022/08/16/",
+    "source_archived_url": null,
+    "claim_type": "predictive",
+    "claim_class": "threshold",
+    "scope": {
+      "geographic": "United States",
+      "policy_domain": "Federal Budget",
+      "affected_population": "US taxpayers"
+    }
+  },
+  
+  "operationalization": {
+    "expected_outcome": {
+      "description": "Cumulative deficit reduction attributable to IRA provisions reaches $300 billion by 2032",
+      "metrics": [
+        "CBO deficit projections",
+        "Treasury deficit reports",
+        "IRA-attributable savings"
+      ],
+      "direction_of_change": "decrease",
+      "baseline_value": "CBO August 2022 baseline (without IRA)",
+      "target_value": "$300 billion cumulative reduction"
+    },
+    "timeframe": {
+      "start_date": "2022-08-16",
+      "evaluation_date": "2032-12-31",
+      "milestone_dates": ["2025-12-31", "2028-12-31"],
+      "tolerance_window_days": 90
+    },
+    "evaluation_criteria": {
+      "success_conditions": [
+        "CBO reports >= $270B attributable deficit reduction (10% margin)"
+      ],
+      "partial_success_conditions": [
+        "$150B - $270B reduction attributable to IRA"
+      ],
+      "failure_conditions": [
+        "< $150B reduction attributable to IRA"
+      ]
+    },
+    "operationalization_notes": "Using CBO scoring methodology. Deficit reduction must be attributable to IRA provisions specifically, not general economic factors."
+  },
+  
+  "evidence": [],
+  
+  "resolution": null
+}
+

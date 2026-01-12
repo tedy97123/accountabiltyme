@@ -1,0 +1,79 @@
+{
+  "reference_id": "CLAIM-CORP-001",
+  "domain": "CORP",
+  "title": "Tesla Full Self-Driving 2023",
+  
+  "declaration": {
+    "claimant_id": "CLAIMANT-TESLA",
+    "statement": "We will have full self-driving this year.",
+    "statement_context": "Elon Musk statement during Tesla Q4 2022 earnings call, January 25, 2023. Similar claims made annually since 2016.",
+    "source_excerpt": "I'm highly confident the car will be able to drive itself with reliability in excess of a human this year.",
+    "declared_at": "2023-01-25T21:00:00Z",
+    "source_url": "https://ir.tesla.com/press-release/tesla-q4-2022-update",
+    "source_archived_url": null,
+    "claim_type": "predictive",
+    "claim_class": "deterministic",
+    "scope": {
+      "geographic": "United States",
+      "policy_domain": "Automotive Technology",
+      "affected_population": "Tesla owners, road users"
+    }
+  },
+  
+  "operationalization": {
+    "expected_outcome": {
+      "description": "Tesla achieves SAE Level 4 or Level 5 autonomy - no human supervision required in defined conditions",
+      "metrics": [
+        "SAE autonomy level achieved",
+        "NHTSA/DMV approval for unsupervised operation",
+        "Commercial availability status"
+      ],
+      "direction_of_change": "achieve threshold",
+      "baseline_value": "SAE Level 2 (driver assistance)",
+      "target_value": "SAE Level 4+ (high/full automation)"
+    },
+    "timeframe": {
+      "start_date": "2023-01-25",
+      "evaluation_date": "2023-12-31",
+      "milestone_dates": [],
+      "tolerance_window_days": 30
+    },
+    "evaluation_criteria": {
+      "success_conditions": [
+        "FSD available requiring no driver attention",
+        "OR regulatory approval for unsupervised operation"
+      ],
+      "partial_success_conditions": [],
+      "failure_conditions": [
+        "FSD still requires driver supervision",
+        "No regulatory approval for hands-free operation"
+      ]
+    },
+    "operationalization_notes": "Interpreting 'full self-driving' per SAE J3016 definitions. True FSD requires no human supervision under operating conditions."
+  },
+  
+  "evidence": [
+    {
+      "evidence_id": "CLAIM-CORP-001-EV-001",
+      "source_url": "https://www.tesla.com/support/autopilot",
+      "source_title": "Tesla Autopilot & Full Self-Driving Support Page",
+      "source_publisher": "Tesla, Inc.",
+      "source_date": "2023-12-15",
+      "source_type": "primary",
+      "evidence_type": "official_report",
+      "summary": "Tesla FSD Beta (v12) documentation states system 'requires active driver supervision' and is classified as SAE Level 2. No regulatory approval for unsupervised operation obtained in 2023.",
+      "supports_claim": false,
+      "relevance_explanation": "Primary source showing FSD did not achieve 'full' self-driving as claimed - still requires human supervision.",
+      "confidence_score": "0.99",
+      "confidence_rationale": "Manufacturer's own official documentation"
+    }
+  ],
+  
+  "resolution": {
+    "resolution": "not_met",
+    "resolution_summary": "Tesla did not achieve full self-driving by end of 2023. FSD remains SAE Level 2, requiring constant driver supervision.",
+    "supporting_evidence_ids": ["CLAIM-CORP-001-EV-001"],
+    "resolution_details": "Despite significant improvements to FSD Beta throughout 2023, the system continues to require active driver supervision per Tesla's own documentation. This is the 7th consecutive year this annual claim has not been met."
+  }
+}
+

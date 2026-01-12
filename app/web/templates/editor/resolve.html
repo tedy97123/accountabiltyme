@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Resolve Claim</h2>
+<p><a href="/editor">← Back to dashboard</a></p>
+
+<form method="post" action="/editor/resolve">
+  <label>Claim ID *
+    <input name="claim_id" placeholder="UUID from dashboard" required />
+  </label>
+
+  <label>Resolution *
+    <select name="resolution">
+      <option value="met">Met - claim was accurate</option>
+      <option value="partially_met">Partially Met - partially accurate</option>
+      <option value="not_met">Not Met - claim was inaccurate</option>
+      <option value="inconclusive">Inconclusive - cannot determine</option>
+    </select>
+  </label>
+
+  <label>Resolution Summary * (min 20 characters)
+    <textarea name="resolution_summary" required placeholder="Detailed explanation of the resolution decision..."></textarea>
+  </label>
+
+  <label>Supporting Evidence IDs (comma-separated UUIDs)
+    <input name="supporting_evidence_ids" placeholder="uuid1, uuid2, ..." />
+  </label>
+
+  <label>Resolution Details
+    <textarea name="resolution_details" placeholder="Additional analysis, numbers, context..."></textarea>
+  </label>
+
+  <button type="submit">Resolve Claim</button>
+</form>
+{% endblock %}
+

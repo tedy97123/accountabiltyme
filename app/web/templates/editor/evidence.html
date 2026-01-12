@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add Evidence</h2>
+<p><a href="/editor">← Back to dashboard</a></p>
+
+<form method="post" action="/editor/evidence">
+  <label>Claim ID *
+    <input name="claim_id" placeholder="UUID from dashboard" required />
+  </label>
+
+  <fieldset>
+    <legend>Source Information</legend>
+    
+    <label>Source URL *
+      <input name="source_url" type="url" placeholder="https://..." required />
+    </label>
+
+    <label>Source Title *
+      <input name="source_title" placeholder="Title of the report/article" required />
+    </label>
+
+    <label>Publisher
+      <input name="source_publisher" placeholder="e.g., Dept of Finance" />
+    </label>
+
+    <label>Source Date (YYYY-MM-DD)
+      <input name="source_date" type="date" />
+    </label>
+
+    <label>Source Type
+      <select name="source_type">
+        <option value="primary">Primary</option>
+        <option value="secondary">Secondary</option>
+      </select>
+    </label>
+
+    <label>Evidence Type
+      <select name="evidence_type">
+        <option value="official_report">Official Report</option>
+        <option value="statistical_data">Statistical Data</option>
+        <option value="news_article">News Article</option>
+        <option value="research_paper">Research Paper</option>
+      </select>
+    </label>
+  </fieldset>
+
+  <label>Summary *
+    <textarea name="summary" required placeholder="What does this evidence show?"></textarea>
+  </label>
+
+  <label>Supports Claim?
+    <select name="supports_claim">
+      <option value="true">Yes - supports the claim</option>
+      <option value="false" selected>No - contradicts the claim</option>
+    </select>
+  </label>
+
+  <label>Relevance Explanation
+    <textarea name="relevance_explanation" placeholder="Why is this evidence relevant?"></textarea>
+  </label>
+
+  <label>Confidence Score (0.0 - 1.0)
+    <input name="confidence_score" value="0.8" placeholder="0.8" />
+  </label>
+
+  <label>Confidence Rationale
+    <textarea name="confidence_rationale" placeholder="Why this confidence level?"></textarea>
+  </label>
+
+  <button type="submit">Add Evidence</button>
+</form>
+{% endblock %}
+

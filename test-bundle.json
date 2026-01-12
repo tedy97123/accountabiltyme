@@ -1,0 +1,205 @@
+{
+  "_meta": {
+    "bundle_version": "1.0.0",
+    "spec_version": "v1",
+    "exported_at": "2026-01-11T20:09:43.561547+00:00",
+    "claim_id": "c5590625-0f0b-4902-a7cb-b1a8ec4123e0",
+    "chain_valid_at_export": true
+  },
+  "_verification": {
+    "canonicalization_version": 1,
+    "hash_algorithm": "sha256",
+    "signature_algorithm": "ed25519",
+    "instructions": [
+      "test"
+    ]
+  },
+  "claim": {
+    "claim_id": "c5590625-0f0b-4902-a7cb-b1a8ec4123e0",
+    "status": "resolved",
+    "event_count": 5
+  },
+  "events": [
+    {
+      "event_id": "0885765f-aaee-4f20-ae88-ae4d8b5e8c5c",
+      "sequence_number": 1,
+      "event_type": "CLAIM_DECLARED",
+      "entity_id": "c5590625-0f0b-4902-a7cb-b1a8ec4123e0",
+      "entity_type": "claim",
+      "payload": {
+        "claim_id": "c5590625-0f0b-4902-a7cb-b1a8ec4123e0",
+        "claimant_id": "613434e0-13da-46b5-ac98-89132881739b",
+        "statement": "Assembly Bill 1234 will reduce median rent prices in California by 15% within two years of implementation through increased housing supply and tenant protections.",
+        "statement_context": "Governor's press conference announcing the signing of AB-1234, the California Housing Affordability Act, March 15, 2024",
+        "declared_at": "2024-03-15T14:30:00.000000Z",
+        "source_url": "https://gov.ca.gov/press-release/ab1234-signing",
+        "source_archived_url": null,
+        "claim_type": "predictive",
+        "scope": {
+          "geographic": "California",
+          "policy_domain": "housing",
+          "affected_population": "renters"
+        },
+        "initial_status": "declared",
+        "schema_version": 1
+      },
+      "previous_event_hash": "2110c31d37449ce8eeaf17612d24e95b1c42fb551e7a93ebf1456319afd368a6",
+      "event_hash": "9d3ed459110ce48ad6993bcc8d857a3fd75980a7c979c666b9eae3a1a76a92d8",
+      "created_by": "2c94ca5f-754d-4dd5-b5b8-a1756a3826d2",
+      "editor_signature": "AA5OvduouBcyI3kgatTV4F+c8gX6sWK618fWDNSIw8v9CkYRMUh9VXbS2n3nwt7GaBG0K0Wspz/rdSWtwJHPBw==",
+      "created_at": "2026-01-11T20:09:43.559771+00:00",
+      "anchor_batch_id": null,
+      "merkle_proof": null
+    },
+    {
+      "event_id": "c6f27770-f292-44f2-be9d-cfe33b9da8e3",
+      "sequence_number": 2,
+      "event_type": "CLAIM_OPERATIONALIZED",
+      "entity_id": "c5590625-0f0b-4902-a7cb-b1a8ec4123e0",
+      "entity_type": "claim",
+      "payload": {
+        "claim_id": "c5590625-0f0b-4902-a7cb-b1a8ec4123e0",
+        "expected_outcome": {
+          "description": "Median rent reduction of 15% statewide",
+          "metrics": [
+            "median_rent_statewide",
+            "zillow_rent_index"
+          ],
+          "direction_of_change": "decrease",
+          "baseline_value": "$2,500/month (Q1 2024)",
+          "baseline_source": null,
+          "baseline_date": null
+        },
+        "timeframe": {
+          "start_date": "2024-04-01",
+          "evaluation_date": "2026-03-15",
+          "tolerance_window_days": 30,
+          "is_vague": false,
+          "vagueness_note": null
+        },
+        "evaluation_criteria": {
+          "success_conditions": [
+            "Median rent <= $2,125/month by evaluation date"
+          ],
+          "partial_success_conditions": [
+            "Median rent between $2,125-$2,375"
+          ],
+          "failure_conditions": [
+            "Median rent > $2,375/month (5% increase)"
+          ],
+          "uncertainty_conditions": []
+        },
+        "operationalization_notes": "Using official CA Dept of Finance data",
+        "new_status": "operationalized",
+        "schema_version": 1
+      },
+      "previous_event_hash": "9d3ed459110ce48ad6993bcc8d857a3fd75980a7c979c666b9eae3a1a76a92d8",
+      "event_hash": "a97381bda31842786f4b2a81775dd2f4499e535b576ae2b9fd30877eecfe2208",
+      "created_by": "2c94ca5f-754d-4dd5-b5b8-a1756a3826d2",
+      "editor_signature": "F68CbJaqzeEwpRHH+OR1XD5MPTY9w2/nuFp+iXcK55OSQ+tGwjuv2tJ177OAWt8wDp5Vw1hU8ZUyAcKip/M+DQ==",
+      "created_at": "2026-01-11T20:09:43.560253+00:00",
+      "anchor_batch_id": null,
+      "merkle_proof": null
+    },
+    {
+      "event_id": "a8f7c17e-7529-4a7b-ae1f-ac42f2989af6",
+      "sequence_number": 3,
+      "event_type": "EVIDENCE_ADDED",
+      "entity_id": "8fce36a7-4cc3-47a9-a614-a6b43560fdf8",
+      "entity_type": "evidence",
+      "payload": {
+        "evidence_id": "8fce36a7-4cc3-47a9-a614-a6b43560fdf8",
+        "claim_id": "c5590625-0f0b-4902-a7cb-b1a8ec4123e0",
+        "source_url": "https://dof.ca.gov/reports/housing-q3-2025",
+        "source_archived_url": null,
+        "source_title": "CA Dept of Finance Q3 2025 Housing Report",
+        "source_publisher": "California Department of Finance",
+        "source_date": "2025-10-15",
+        "source_type": "primary",
+        "evidence_type": "statistical_data",
+        "summary": "Q3 2025 data shows median rent at $2,350/month, representing a 6% decrease from baseline. On track but short of 15% target.",
+        "relevant_excerpt": null,
+        "supports_claim": true,
+        "relevance_explanation": "Direct measurement of target metric",
+        "confidence_score": "0.95",
+        "confidence_rationale": "Official government data source",
+        "schema_version": 1
+      },
+      "previous_event_hash": "a97381bda31842786f4b2a81775dd2f4499e535b576ae2b9fd30877eecfe2208",
+      "event_hash": "21f97a4bcf5b71648a2d65e7ecd8bc0f151fbc8c29c918874aebb3bc78200129",
+      "created_by": "2c94ca5f-754d-4dd5-b5b8-a1756a3826d2",
+      "editor_signature": "ng9PS3NTLnLfmmbHDXpHWMr0q319WIPxNwDhYoCkDyqxLwmBd8iAoY4/DWM7LFl7dOweJoh9j695LNv8Sw8MAw==",
+      "created_at": "2026-01-11T20:09:43.560640+00:00",
+      "anchor_batch_id": null,
+      "merkle_proof": null
+    },
+    {
+      "event_id": "fdbcd0a5-619b-470e-902e-29aa26667d0f",
+      "sequence_number": 4,
+      "event_type": "EVIDENCE_ADDED",
+      "entity_id": "ce2b7abc-0bd8-42a4-ba18-6cdd021b9170",
+      "entity_type": "evidence",
+      "payload": {
+        "evidence_id": "ce2b7abc-0bd8-42a4-ba18-6cdd021b9170",
+        "claim_id": "c5590625-0f0b-4902-a7cb-b1a8ec4123e0",
+        "source_url": "https://dof.ca.gov/reports/housing-annual-2026",
+        "source_archived_url": null,
+        "source_title": "CA Dept of Finance Annual Housing Report 2026",
+        "source_publisher": "California Department of Finance",
+        "source_date": "2026-03-01",
+        "source_type": "primary",
+        "evidence_type": "statistical_data",
+        "summary": "Final evaluation: median rent at $2,275/month, representing a 9% decrease. Significant progress but fell short of 15% target.",
+        "relevant_excerpt": null,
+        "supports_claim": false,
+        "relevance_explanation": "Final measurement at evaluation date",
+        "confidence_score": "0.98",
+        "confidence_rationale": "Official government data, final numbers",
+        "schema_version": 1
+      },
+      "previous_event_hash": "21f97a4bcf5b71648a2d65e7ecd8bc0f151fbc8c29c918874aebb3bc78200129",
+      "event_hash": "3b71c7c03feba77e0d8e1cbdacb8452c852230a16b126f5f431b82e56fd337b1",
+      "created_by": "2c94ca5f-754d-4dd5-b5b8-a1756a3826d2",
+      "editor_signature": "Ukf83QegEuokKSiHsa06gNP+ewwRXFuZRqucnk70uzrIOwPN1RqYf5ItSepIv/IfSxMiFNDNkmHEMOQD/CY0BA==",
+      "created_at": "2026-01-11T20:09:43.560953+00:00",
+      "anchor_batch_id": null,
+      "merkle_proof": null
+    },
+    {
+      "event_id": "a07838f4-fd75-419a-a099-c95c50366674",
+      "sequence_number": 5,
+      "event_type": "CLAIM_RESOLVED",
+      "entity_id": "c5590625-0f0b-4902-a7cb-b1a8ec4123e0",
+      "entity_type": "claim",
+      "payload": {
+        "claim_id": "c5590625-0f0b-4902-a7cb-b1a8ec4123e0",
+        "resolution": "partially_met",
+        "resolution_summary": "The claim was partially met. While AB-1234 did achieve significant rent reduction (9%), it fell short of the claimed 15% reduction. The policy had measurable positive impact but overpromised results.",
+        "supporting_evidence_ids": [
+          "8fce36a7-4cc3-47a9-a614-a6b43560fdf8",
+          "ce2b7abc-0bd8-42a4-ba18-6cdd021b9170"
+        ],
+        "resolution_details": "Baseline: $2,500/month. Target: $2,125/month (15% reduction). Actual: $2,275/month (9% reduction). Gap: 6 percentage points.",
+        "unresolvable_reason": null,
+        "new_status": "resolved",
+        "schema_version": 1
+      },
+      "previous_event_hash": "3b71c7c03feba77e0d8e1cbdacb8452c852230a16b126f5f431b82e56fd337b1",
+      "event_hash": "93766c5021a9833bbe4d09753152697a1b6710702cec1243b7470f5146d45105",
+      "created_by": "2c94ca5f-754d-4dd5-b5b8-a1756a3826d2",
+      "editor_signature": "Tc5ewjphnSRKA5fqT+sinnGDiyx3HoP/PPBUw3aagdCeSD87TKZqKRihP2BF1mGiTu+kkpWLg05uTfwZ/e3dBw==",
+      "created_at": "2026-01-11T20:09:43.561322+00:00",
+      "anchor_batch_id": null,
+      "merkle_proof": null
+    }
+  ],
+  "editors": {
+    "2c94ca5f-754d-4dd5-b5b8-a1756a3826d2": {
+      "editor_id": "2c94ca5f-754d-4dd5-b5b8-a1756a3826d2",
+      "username": "demo_editor",
+      "display_name": "Demo Editor",
+      "public_key": "WGZNwu1dXBvaaihC3NFb4/wZ7yFPqPkdAIzKP2EBd6g=",
+      "role": "admin"
+    }
+  }
+}

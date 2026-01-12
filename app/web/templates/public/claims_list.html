@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Public Claim Registry</h2>
+<p>
+  These claims are recorded on a tamper-evident ledger. 
+  Each claim has a cryptographic hash chain that proves no entries have been modified.
+</p>
+
+{% if claims|length == 0 %}
+  <article>
+    <p>No claims recorded yet.</p>
+    <p><small>Claims will appear here once they are declared through the editorial process.</small></p>
+  </article>
+{% else %}
+  <table role="grid">
+    <thead>
+      <tr>
+        <th scope="col">Claim</th>
+        <th scope="col">Status</th>
+        <th scope="col">Declared</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in claims %}
+      <tr>
+        <td>
+          <a href="/claims/{{ c.claim_id }}">
+            {{ c.statement[:100] }}{% if c.statement|length > 100 %}...{% endif %}
+          </a>
+          <br>
+          <small class="hash-text">{{ c.claim_id }}</small>
+        </td>
+        <td>
+          <span class="badge badge-{{ c.status }}">{{ c.status }}</span>
+        </td>
+        <td>
+          <small>{{ c.declared_at[:10] if c.declared_at else "-" }}</small>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
+{% endblock %}
+

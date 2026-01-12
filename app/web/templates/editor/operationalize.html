@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Operationalize Claim</h2>
+<p><a href="/editor">← Back to dashboard</a></p>
+
+<form method="post" action="/editor/operationalize">
+  <label>Claim ID *
+    <input name="claim_id" placeholder="UUID from dashboard" required />
+  </label>
+
+  <fieldset>
+    <legend>Expected Outcome</legend>
+    
+    <label>Description *
+      <textarea name="outcome_description" required placeholder="What should happen if the claim is true?"></textarea>
+    </label>
+
+    <label>Metrics * (comma-separated)
+      <input name="metrics" placeholder="median_rent, housing_index" required />
+    </label>
+
+    <label>Direction of Change
+      <select name="direction_of_change">
+        <option value="decrease">Decrease</option>
+        <option value="increase">Increase</option>
+        <option value="no_change">No Change</option>
+      </select>
+    </label>
+
+    <label>Baseline Value
+      <input name="baseline_value" placeholder="e.g., $2,500/month" />
+    </label>
+
+    <label>Baseline Date (YYYY-MM-DD)
+      <input name="baseline_date" type="date" />
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Timeframe</legend>
+    
+    <label>Start Date * (YYYY-MM-DD)
+      <input name="start_date" type="date" required />
+    </label>
+
+    <label>Evaluation Date * (YYYY-MM-DD)
+      <input name="evaluation_date" type="date" required />
+    </label>
+
+    <label>Tolerance Window (days)
+      <input name="tolerance_window_days" type="number" value="30" />
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Evaluation Criteria</legend>
+    
+    <label>Success Conditions * (one per line)
+      <textarea name="success_conditions" required placeholder="Median rent <= $2,125/month"></textarea>
+    </label>
+
+    <label>Partial Success Conditions (one per line)
+      <textarea name="partial_success_conditions" placeholder="Median rent between $2,125-$2,375"></textarea>
+    </label>
+
+    <label>Failure Conditions (one per line)
+      <textarea name="failure_conditions" placeholder="Median rent > $2,500/month"></textarea>
+    </label>
+  </fieldset>
+
+  <label>Notes
+    <textarea name="notes" placeholder="Additional context for evaluation..."></textarea>
+  </label>
+
+  <button type="submit">Operationalize</button>
+</form>
+{% endblock %}
+

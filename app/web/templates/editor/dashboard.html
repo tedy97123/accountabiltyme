@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Editor Portal</h2>
+
+<article>
+  <p><strong>Logged in as:</strong> {{ user.username }}</p>
+  <p><strong>Ledger Editor ID:</strong> <code>{{ editor_id }}</code></p>
+  <p>
+    <strong>Chain Integrity:</strong>
+    {% if chain_ok %}
+      <span style="color: #059669;">✓ VALID</span>
+    {% else %}
+      <span style="color: #dc2626;">✗ INVALID</span>
+    {% endif %}
+  </p>
+</article>
+
+<form method="post" action="/editor/logout" style="margin-bottom: 2rem;">
+  <button type="submit" class="secondary outline">Logout</button>
+</form>
+
+<h3>Actions</h3>
+<div role="group">
+  <a href="/editor/declare" role="button">Declare claim</a>
+  <a href="/editor/operationalize" role="button" class="secondary">Operationalize</a>
+  <a href="/editor/evidence" role="button" class="secondary">Add evidence</a>
+  <a href="/editor/resolve" role="button" class="contrast">Resolve</a>
+</div>
+
+<h3>Known Claim IDs</h3>
+<p><small>Copy these IDs to use in the forms below.</small></p>
+{% if claim_ids|length == 0 %}
+  <p>No claims yet. <a href="/editor/declare">Declare your first claim</a>.</p>
+{% else %}
+  <table role="grid">
+    <thead>
+      <tr>
+        <th>Claim ID</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cid in claim_ids %}
+      <tr>
+        <td><code style="font-size: 0.8rem;">{{ cid }}</code></td>
+        <td>
+          <a href="/claims/{{ cid }}" target="_blank">View</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
+{% endblock %}
+

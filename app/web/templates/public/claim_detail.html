@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block content %}
+<article>
+  <header>
+    <nav aria-label="breadcrumb">
+      <ul>
+        <li><a href="/claims">Claims</a></li>
+        <li>{{ detail.claim_id }}</li>
+      </ul>
+    </nav>
+    <h2>Claim Detail</h2>
+  </header>
+
+  <p>
+    <strong>Status:</strong> 
+    <span class="badge badge-{{ detail.status }}">{{ detail.status }}</span>
+  </p>
+  <p>
+    <strong>ID:</strong> 
+    <code class="hash-text">{{ detail.claim_id }}</code>
+  </p>
+</article>
+
+{% if detail.declared %}
+<article>
+  <header><h3>Statement</h3></header>
+  <blockquote>
+    {{ detail.declared.statement }}
+  </blockquote>
+  <p><small>{{ detail.declared.statement_context }}</small></p>
+  <p>
+    <small>
+      <strong>Source:</strong> 
+      <a href="{{ detail.declared.source_url }}" target="_blank" rel="noopener">
+        {{ detail.declared.source_url }}
+      </a>
+    </small>
+  </p>
+  {% if detail.declared.scope %}
+  <p>
+    <small>
+      <strong>Scope:</strong>
+      {{ detail.declared.scope.geographic or "" }}
+      {% if detail.declared.scope.policy_domain %} | {{ detail.declared.scope.policy_domain }}{% endif %}
+      {% if detail.declared.scope.affected_population %} | {{ detail.declared.scope.affected_population }}{% endif %}
+    </small>
+  </p>
+  {% endif %}
+</article>
+{% endif %}
+
+{% if detail.operationalized %}
+<article>
+  <header><h3>Operationalization</h3></header>
+  <p>How this claim will be evaluated:</p>
+  
+  {% if detail.operationalized.expected_outcome %}
+  <dl>
+    <dt>Expected Outcome</dt>
+    <dd>{{ detail.operationalized.expected_outcome.description }}</dd>
+    
+    {% if detail.operationalized.expected_outcome.baseline_value %}
+    <dt>Baseline</dt>
+    <dd>{{ detail.operationalized.expected_outcome.baseline_value }}</dd>
+    {% endif %}
+    
+    {% if detail.operationalized.expected_outcome.target_value %}
+    <dt>Target</dt>
+    <dd>{{ detail.operationalized.expected_outcome.target_value }}</dd>
+    {% endif %}
+  </dl>
+  {% endif %}
+  
+  {% if detail.operationalized.timeframe %}
+  <dl>
+    <dt>Evaluation Date</dt>
+    <dd>{{ detail.operationalized.timeframe.evaluation_date }}</dd>
+  </dl>
+  {% endif %}
+</article>
+{% endif %}
+
+<article>
+  <header><h3>Evidence ({{ detail.evidence|length }})</h3></header>
+  
+  {% if detail.evidence|length == 0 %}
+    <p>No evidence has been submitted yet.</p>
+  {% else %}
+    {% for ev in detail.evidence %}
+    <div class="evidence-card {% if not ev.supports_claim %}contradicting{% endif %}">
+      <h4>{{ ev.source_title }}</h4>
+      <p>{{ ev.summary }}</p>
+      <p>
+        <small>
+          {% if ev.supports_claim %}
+            <span style="color: #059669;">✓ Supports claim</span>
+          {% else %}
+            <span style="color: #dc2626;">✗ Contradicts claim</span>
+          {% endif %}
+          | Confidence: {{ ev.confidence_score }}
+          | <a href="{{ ev.source_url }}" target="_blank" rel="noopener">Source</a>
+        </small>
+      </p>
+    </div>
+    {% endfor %}
+  {% endif %}
+</article>
+
+{% if detail.resolved %}
+<article>
+  <header><h3>Resolution</h3></header>
+  <p>
+    <strong>Verdict:</strong> 
+    <span class="badge badge-resolved">{{ detail.resolved.resolution }}</span>
+  </p>
+  <blockquote>
+    {{ detail.resolved.resolution_summary }}
+  </blockquote>
+  {% if detail.resolved.resolution_details %}
+  <p><small>{{ detail.resolved.resolution_details }}</small></p>
+  {% endif %}
+</article>
+{% endif %}
+
+<article>
+  <header><h3>Event Timeline</h3></header>
+  <p><small>Cryptographic audit trail - each event is hashed and chained.</small></p>
+  
+  <table role="grid">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Type</th>
+        <th scope="col">Event Hash</th>
+        <th scope="col">Prev Hash</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in detail.timeline %}
+      <tr>
+        <td>{{ e.seq }}</td>
+        <td><small>{{ e.type }}</small></td>
+        <td><code class="hash-text">{{ e.hash[:16] }}...</code></td>
+        <td><code class="hash-text">{{ (e.prev[:16] + "...") if e.prev else "genesis" }}</code></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</article>
+
+<p style="text-align: center;">
+  <a href="/claims/{{ detail.claim_id }}/export.md" role="button" class="outline">
+    Export Markdown Report
+  </a>
+</p>
+{% endblock %}
+
