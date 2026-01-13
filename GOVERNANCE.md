@@ -119,7 +119,7 @@ If you discover a security vulnerability that could affect the integrity of the 
 **Do NOT open a public issue.**
 
 Instead:
-1. Email: `security@accountabilityme.org` (placeholder—update when domain is established)
+1. Email: `tedyyohanes97@gmail.com` (placeholder—update when domain is established)
 2. Include: description, reproduction steps, potential impact
 3. Allow 90 days for response before public disclosure
 
@@ -130,4 +130,5 @@ We take security seriously because the system's value depends on cryptographic t
 ---
 
 *This document may be updated. Changes will be tracked in version control.*
+
 
