@@ -3,7 +3,8 @@
 A public memory system for tracking claims, promises, and outcomes from policy makers and media narratives.
 
 ## Frontend of Claim
-![Uploading image.png…]()
+<img width="1612" height="1079" alt="image" src="https://github.com/user-attachments/assets/6dd07198-78cf-4c4d-9825-52dd245adbd5" />
+
 
 
 ## Philosophy
@@ -365,4 +366,5 @@ MIT - This infrastructure belongs to everyone.
 4. Submit a pull request
 
 For governance and editorial policies, see [GOVERNANCE.md](GOVERNANCE.md).
+
 
