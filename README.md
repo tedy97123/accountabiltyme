@@ -2,6 +2,10 @@
 
 A public memory system for tracking claims, promises, and outcomes from policy makers and media narratives.
 
+## Frontend of Claim
+![Uploading image.png…]()
+
+
 ## Philosophy
 
 This system does not tell people what to think. It shows how claims connect to reality over time.
@@ -361,3 +365,4 @@ MIT - This infrastructure belongs to everyone.
 4. Submit a pull request
 
 For governance and editorial policies, see [GOVERNANCE.md](GOVERNANCE.md).
+
